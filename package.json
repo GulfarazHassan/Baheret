@@ -1,0 +1,45 @@
+{
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@ptomasroos/react-native-multi-slider": "^1.0.0",
+    "expo-app-loader-provider": "^5.0.1",
+    "expo-font": "^5.0.1",
+    "expo-image-picker": "^5.0.2",
+    "expo-location": "^5.0.1",
+    "expo-sms": "^5.0.1",
+    "expo-web-browser": "^5.0.3",
+    "firebase": "^5.11.1",
+    "moment": "^2.24.0",
+    "native-base": "^2.12.1",
+    "react": "16.8.3",
+    "react-native": "0.59.8",
+    "react-native-elements": "^1.1.0",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-native-gifted-chat": "^0.9.11",
+    "react-native-phone-input": "^0.2.4",
+    "react-native-svg": "^9.5.3",
+    "react-native-switch-selector": "^1.1.14",
+    "react-native-unimodules": "0.4.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^3.11.1",
+    "react-navigation-transitions": "^1.0.11",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-jest": "24.1.0",
+    "jest": "24.1.0",
+    "metro-react-native-babel-preset": "0.52.0",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "private": true
+}
