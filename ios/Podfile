@@ -35,6 +35,9 @@ target 'Basheret' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+
+
+
   target 'BasheretTests' do
     inherit! :search_paths
   end

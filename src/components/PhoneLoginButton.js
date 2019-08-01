@@ -12,7 +12,18 @@ const PhoneLoginButton = ({ onPress }) => {
   );
 };
 
+const PhoneLoginButton2 = ({ onPress }) => {
+  return (
+    <View style={{ flex: 1 }}>
+      <TouchableOpacity onPress={onPress} style={styles.phoneLoginButtonStyle2}>
+        <Text style={styles.loginButtonTextStyle}>Continue</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
 export { PhoneLoginButton };
+export { PhoneLoginButton2 };
 
 const styles = StyleSheet.create({
   loginButtonTextStyle: {
@@ -27,5 +38,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: 300,
     borderRadius: 30
+  },
+  phoneLoginButtonStyle2: {
+    backgroundColor: "#d81159",
+    padding: 20,
+    alignItems: "center",
+    alignSelf: "center",
+    width: 300,
+    borderRadius: 30,
+    marginTop: 10
   }
 });

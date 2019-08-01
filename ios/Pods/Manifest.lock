@@ -2,9 +2,15 @@ PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
   - EXAppLoaderProvider (5.0.1)
+  - EXBlur (6.0.0):
+    - UMCore
   - EXConstants (5.0.1):
     - UMConstantsInterface
     - UMCore
+  - EXContacts (5.0.2):
+    - UMCore
+    - UMFileSystemInterface
+    - UMPermissionsInterface
   - EXFileSystem (5.0.1):
     - UMCore
     - UMFileSystemInterface
@@ -112,7 +118,9 @@ PODS:
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXAppLoaderProvider (from `../node_modules/expo-app-loader-provider/ios`)
+  - EXBlur (from `../node_modules/expo-blur/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
+  - EXContacts (from `../node_modules/expo-contacts/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
   - EXImagePicker (from `../node_modules/expo-image-picker/ios`)
@@ -163,9 +171,15 @@ EXTERNAL SOURCES:
   EXAppLoaderProvider:
     :path: !ruby/object:Pathname
     path: "../node_modules/expo-app-loader-provider/ios"
+  EXBlur:
+    :path: !ruby/object:Pathname
+    path: "../node_modules/expo-blur/ios"
   EXConstants:
     :path: !ruby/object:Pathname
     path: "../node_modules/expo-constants/ios"
+  EXContacts:
+    :path: !ruby/object:Pathname
+    path: "../node_modules/expo-contacts/ios"
   EXFileSystem:
     :path: !ruby/object:Pathname
     path: "../node_modules/expo-file-system/ios"
@@ -242,7 +256,9 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   EXAppLoaderProvider: 43e88f7967ab45672e66b6f90f9e79b5718bf960
+  EXBlur: ecb052a80bc2f02d108c1f84786e01c388e91847
   EXConstants: 831e6b7ad2f3e8c6153d077aca7e849364d948a8
+  EXContacts: 552e45cb2289b95f812ed98a13eaab932fdc77e6
   EXFileSystem: 90407abadbedff7b4c5cf880b963614c9c4bdd07
   EXFont: 84bb0b334c2ffb85431cbde6bfa1133a777754e1
   EXImagePicker: 4413bd93ab43b1ef6b13167bd83feb8353474d4f
@@ -270,6 +286,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: 2d2d591bbd0de47f2a8ef46cea775edcd82d4afd
   yoga: 92b2102c3d373d1a790db4ab761d2b0ffc634f64
 
-PODFILE CHECKSUM: 3a62fb8b92d302940f501d1d2269cfac33cad49c
+PODFILE CHECKSUM: 345662895a5dd931039b8cb4e155afcd67780019
 
 COCOAPODS: 1.6.0

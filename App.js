@@ -13,6 +13,7 @@ import {
   StatusBar,
   Platform
 } from "react-native";
+
 import * as Font from "expo-font";
 import * as WebBrowser from "expo-web-browser";
 import { Asset } from "react-native-unimodules";

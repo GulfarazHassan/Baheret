@@ -176,7 +176,8 @@ export class OnboardingScreen extends React.Component {
               keyboardType='numeric'
               placeholder='Code from SMS'
             />
-            <Button onPress={this.onSignIn} title='Sign in' />
+            <Button onPress={this.onSignIn} title='ppp in' />
+            <Button onPress={console.log("New page..")} title='Continue' />
             <Text>{this.state.error}</Text>
           </View>
         </View>

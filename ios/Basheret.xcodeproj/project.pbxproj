@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BasheretTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BasheretTests.m */; };
 		07A032E216D244EABE3A4703 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB3574A465C84530BE93DDE1 /* FontAwesome5_Brands.ttf */; };
@@ -48,6 +47,7 @@
 		E2144F5572424721B43B584C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E568EB2EA4C7481CAE18F9A8 /* MaterialIcons.ttf */; };
 		E3964CF5F7B743D18B4A7F5C /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DD35533224A4F4290C775E7 /* FontAwesome5_Solid.ttf */; };
 		FCF3EB6B24944110A3846B6E /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13849BFD07124A5FA5F50242 /* Entypo.ttf */; };
+		77DF99C873BE42AC9E777EE7 /* FitamintScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3558210950A94034995AEBFC /* FitamintScript.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +115,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F19C78E2930848FFA22A8056 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		FF8BFBC3C46041BD9F51E67F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/native-base/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		3558210950A94034995AEBFC /* FitamintScript.ttf */ = {isa = PBXFileReference; name = "FitamintScript.ttf"; path = "../assets/fonts/FitamintScript.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +250,7 @@
 				B69AD6025E3444C1A66B9C89 /* Octicons.ttf */,
 				03ED73B9269B42B69FF3502E /* SimpleLineIcons.ttf */,
 				692532F2F6504F199EAD714F /* Zocial.ttf */,
+				3558210950A94034995AEBFC /* FitamintScript.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -391,6 +393,7 @@
 				A13525EC1E264BB9AB7648C2 /* Octicons.ttf in Resources */,
 				AB24342C0F404505B3553E86 /* SimpleLineIcons.ttf in Resources */,
 				25BC7E043D3A4E27B3DA96D6 /* Zocial.ttf in Resources */,
+				77DF99C873BE42AC9E777EE7 /* FitamintScript.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
