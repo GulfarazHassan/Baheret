@@ -15,6 +15,7 @@ import { withNavigation } from "react-navigation";
 import * as Animatable from "react-native-animatable";
 import { BlurView } from "expo-blur";
 import firebase from "./src/actions/firebase";
+import { Card, ListItem, Button, Icon } from "react-native-elements";
 
 class MatchMaker extends Component {
   state = {
@@ -24,7 +25,9 @@ class MatchMaker extends Component {
     sender: "",
     senderId: "",
     toWhom: "",
-    toWhomId: "chat"
+    toWhomId: "",
+    user1Img: false,
+    user2Img: false
   };
   plusImage = () => {
     return (
@@ -64,6 +67,9 @@ class MatchMaker extends Component {
         message: this.state.text
       })
       .then(() => {
+        this.setState({
+          text: ""
+        });
         Alert.alert(
           "Message Sent Successfully ",
           "To: " + this.state.toWhom,
@@ -124,6 +130,9 @@ class MatchMaker extends Component {
           <View style={styles.matchContact}>
             <TouchableOpacity
               onPress={() => {
+                this.setState({
+                  user1Img: true
+                });
                 navigate("ContactList", { user: 1 });
               }}
               style={{
@@ -137,13 +146,16 @@ class MatchMaker extends Component {
                 alignItems: "center"
               }}>
               <View style={{ marginBottom: 30 }}>
-                {this.props.userData.userProfile1 != ""
+                {this.props.userData.userProfile1 != "" && this.state.user1Img
                   ? this.imageIcon(this.props.userData.userProfile1)
                   : this.plusImage()}
               </View>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
+                this.setState({
+                  user2Img: true
+                });
                 navigate("ContactList", { user: 2 });
               }}
               style={{
@@ -157,7 +169,7 @@ class MatchMaker extends Component {
                 alignItems: "center"
               }}>
               <View style={{ marginBottom: 30 }}>
-                {this.props.userData.userProfile2 != ""
+                {this.props.userData.userProfile2 != "" && this.state.user2Img
                   ? this.imageIcon(this.props.userData.userProfile2)
                   : this.plusImage()}
               </View>
@@ -216,13 +228,21 @@ class MatchMaker extends Component {
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               onPress={() => {
-                // navigate("MessageScreen");
-                if (!this.state.show1) {
-                  this.props.showHeader({ showHeader: this.state.show1 });
-                  this.setState({ show1: true });
+                if (this.state.user1Img && this.state.user2Img) {
+                  if (!this.state.show1) {
+                    this.props.showHeader({ showHeader: this.state.show1 });
+                    this.setState({ show1: true });
+                  } else {
+                    this.props.showHeader({ showHeader: this.state.show1 });
+                    this.setState({ show1: false });
+                  }
                 } else {
-                  this.props.showHeader({ showHeader: this.state.show1 });
-                  this.setState({ show1: false });
+                  Alert.alert(
+                    "Both contacts are not selected",
+                    "Please first select both contacts to continue",
+                    [{ text: "OK", onPress: () => console.log("OK Pressed") }],
+                    { cancelable: false }
+                  );
                 }
               }}
               style={{
@@ -242,7 +262,22 @@ class MatchMaker extends Component {
           <View style={styles.buttonContainer2}>
             <TouchableOpacity
               onPress={() => {
-                this.setState({ show1: false });
+                this.setState({
+                  show1: false,
+                  sender: "",
+                  senderId: "",
+                  toWhom: "",
+                  toWhomId: "",
+                  user1Img: false,
+                  user2Img: false
+                });
+                let data = {
+                  userId1: "",
+                  username1: "",
+                  userProfile1: ""
+                };
+                this.props.adduser1(data);
+                this.props.adduser2(data);
                 this.props.showHeader({ showHeader: true });
                 this.props.showComponent({ show: false });
                 this.props.navigation.navigate("MatchMaking", {
@@ -266,54 +301,56 @@ class MatchMaker extends Component {
           </View>
         )}
         {this.state.showMessage ? (
-          <BlurView tint='light' intensity={120} style={styles.notBlurred}>
+          <BlurView tint='light' intensity={130} style={styles.notBlurred}>
             <View
               style={{
                 width: "100%",
-                height: "30%",
+                height: "100%",
                 paddingLeft: 20,
                 paddingRight: 10,
                 marginTop: 130
               }}>
-              <Text style={{ color: "rgb(156, 0, 119)", fontSize: 23 }}>
-                To: {this.state.toWhom}{" "}
-              </Text>
-              <View style={styles.hairline} />
-              <TextInput
-                style={{
-                  borderColor: "gray",
-                  borderWidth: 1,
-                  marginTop: 20,
-                  paddingTop: 0,
-                  fontSize: 20
-                }}
-                multiline={true}
-                numberOfLines={2}
-                onChangeText={text => this.setState({ text })}
-                value={this.state.text}
-              />
-              <View style={styles.buttonContainer12}>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.setState({
-                      showMessage: false
-                    });
-                    this.sendMessage();
-                  }}
+              <Card title='Send Message' borderColor='black'>
+                <Text style={{ color: "rgb(156, 0, 119)", fontSize: 23 }}>
+                  To: {this.state.toWhom}{" "}
+                </Text>
+                <View style={styles.hairline} />
+                <TextInput
                   style={{
-                    height: 40,
-                    width: 190,
-                    backgroundColor: "rgb(156, 0, 119)",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    borderRadius: 15,
-                    marginBottom: 10
-                  }}>
-                  <Text style={{ color: "white", fontSize: 20 }}>
-                    Send Message
-                  </Text>
-                </TouchableOpacity>
-              </View>
+                    borderColor: "gray",
+                    borderWidth: 1,
+                    marginTop: 20,
+                    paddingTop: 0,
+                    fontSize: 20
+                  }}
+                  multiline={true}
+                  numberOfLines={2}
+                  onChangeText={text => this.setState({ text })}
+                  value={this.state.text}
+                />
+                <View style={styles.buttonContainer12}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.setState({
+                        showMessage: false
+                      });
+                      this.sendMessage();
+                    }}
+                    style={{
+                      height: 40,
+                      width: 190,
+                      backgroundColor: "rgb(156, 0, 119)",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderRadius: 15,
+                      marginBottom: 10
+                    }}>
+                    <Text style={{ color: "white", fontSize: 20 }}>
+                      Send Message
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </Card>
             </View>
           </BlurView>
         ) : null}
@@ -331,7 +368,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     showHeader: data => dispatch({ type: "SHOW_HEADER", payload: data }),
-    showComponent: data => dispatch({ type: "SHOW_COMPONENT", payload: data })
+    showComponent: data => dispatch({ type: "SHOW_COMPONENT", payload: data }),
+    adduser1: data => dispatch({ type: "ADD_USER_1", payload: data }),
+    adduser2: data => dispatch({ type: "ADD_USER_2", payload: data })
   };
 }
 export default connect(
@@ -388,7 +427,7 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFill
   },
   buttonContainer12: {
-    paddingLeft: 60,
+    paddingLeft: 30,
     paddingRight: 120,
     marginTop: 20
   }

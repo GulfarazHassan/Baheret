@@ -12,18 +12,7 @@ const PhoneLoginButton = ({ onPress }) => {
   );
 };
 
-const PhoneLoginButton2 = ({ onPress }) => {
-  return (
-    <View style={{ flex: 1 }}>
-      <TouchableOpacity onPress={onPress} style={styles.phoneLoginButtonStyle2}>
-        <Text style={styles.loginButtonTextStyle}>Continue</Text>
-      </TouchableOpacity>
-    </View>
-  );
-};
-
 export { PhoneLoginButton };
-export { PhoneLoginButton2 };
 
 const styles = StyleSheet.create({
   loginButtonTextStyle: {

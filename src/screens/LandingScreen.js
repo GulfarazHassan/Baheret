@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { loginWithFacebook } from "../actions/AuthActions";
 import { PhoneLoginButton } from "../components/PhoneLoginButton";
-import { PhoneLoginButton2 } from "../components/PhoneLoginButton";
 import * as Font from "expo-font";
 import firebase from "../actions/firebase";
 import { loginWithPhoneNumber } from "../actions/AuthActions";
@@ -53,7 +52,6 @@ export class LandingScreen extends React.Component {
         <View
           style={{ flex: 1, justifyContent: "flex-end", paddingBottom: 20 }}>
           <PhoneLoginButton onPress={() => this.onPress()} />
-          <PhoneLoginButton2 onPress={() => this.onPress2()} />
         </View>
       </View>
     );
