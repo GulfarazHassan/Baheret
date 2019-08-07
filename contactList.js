@@ -77,10 +77,6 @@ class ContactList extends React.Component {
                 item2.name = item1.name;
                 item2.profilePhoto = item1.profilePhoto;
                 myArray.unshift(item1);
-                console.log("this is item 222");
-                console.log(item1);
-                console.log("this is item 333");
-                console.log(item2);
               } else {
                 myArray.unshift(item2);
               }
