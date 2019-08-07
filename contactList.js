@@ -43,9 +43,6 @@ class ContactList extends React.Component {
       .then(
         function(querySnapshot) {
           querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            // console.log(doc.data().info.phoneNumber);
-
             if (doc.data().info.phoneNumber != undefined) {
               if (doc.data().info.name != undefined) {
                 contact2.push({
@@ -71,15 +68,27 @@ class ContactList extends React.Component {
           });
           var arr1 = contact2;
           var newArr = this.state.phoneConatcts;
-          arr1.forEach(obj1 => {
-            newArr.unshift(obj1);
-          });
-          console.log("NEw Array elements ...");
-          console.log(newArr);
 
+          var myArray = [];
+          arr1.forEach(item1 => {
+            newArr.forEach(item2 => {
+              if (item1.number === item2.number) {
+                item2.userID = item1.userID;
+                item2.name = item1.name;
+                item2.profilePhoto = item1.profilePhoto;
+                myArray.unshift(item1);
+                console.log("this is item 222");
+                console.log(item1);
+                console.log("this is item 333");
+                console.log(item2);
+              } else {
+                myArray.unshift(item2);
+              }
+            });
+          });
           this.setState({
             newArray: newArr,
-            data12: newArr
+            data12: myArray
           });
         }.bind(this)
       );
@@ -109,8 +118,7 @@ class ContactList extends React.Component {
         }
       });
       this.setState({
-        phoneConatcts: contactMobile,
-        data12: contactMobile
+        phoneConatcts: contactMobile
       });
     });
   }
@@ -180,6 +188,9 @@ class ContactList extends React.Component {
         </Text>
         <Text style={{ color: "rgb(255, 108, 117)", fontWeight: "bold" }}>
           {item.number}
+        </Text>
+        <Text style={{ color: "rgb(255, 108, 117)" }}>
+          {item.userID !== "" ? "From app contacts" : "From phone contacts"}
         </Text>
       </View>
     </TouchableOpacity>
